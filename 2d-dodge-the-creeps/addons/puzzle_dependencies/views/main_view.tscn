@@ -1,0 +1,217 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/puzzle_dependencies/views/main_view.gd" type="Script" id=1]
+[ext_resource path="res://addons/puzzle_dependencies/components/board.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/puzzle_dependencies/components/update_checker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/puzzle_dependencies/components/settings.gd" type="Script" id=4]
+[ext_resource path="res://addons/puzzle_dependencies/views/edit_board_dialog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/puzzle_dependencies/views/settings_dialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/puzzle_dependencies/views/export_dialog.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Image" id=1]
+data = {
+"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
+"format": "LumAlpha8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id=2]
+flags = 4
+flags = 4
+image = SubResource( 1 )
+size = Vector2( 16, 16 )
+
+[node name="MainView" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="UpdateChecker" parent="." instance=ExtResource( 3 )]
+
+[node name="Settings" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+margin_left = 3.0
+margin_right = 1021.0
+margin_bottom = 597.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Toolbar" type="HBoxContainer" parent="Margin/VBox"]
+margin_right = 1018.0
+margin_bottom = 24.0
+
+[node name="AddBoardButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_right = 28.0
+margin_bottom = 24.0
+hint_tooltip = "Add a new board"
+icon = SubResource( 2 )
+
+[node name="VSeparator" type="VSeparator" parent="Margin/VBox/Toolbar"]
+margin_left = 32.0
+margin_right = 36.0
+margin_bottom = 24.0
+
+[node name="BoardsMenu" type="MenuButton" parent="Margin/VBox/Toolbar"]
+margin_left = 40.0
+margin_right = 160.0
+margin_bottom = 24.0
+disabled = true
+text = "No boards yet"
+icon = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "Pick a board"
+}
+
+[node name="EditBoardButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 164.0
+margin_right = 192.0
+margin_bottom = 24.0
+hint_tooltip = "Rename board..."
+disabled = true
+icon = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "Rename the board"
+}
+
+[node name="RemoveBoardButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 196.0
+margin_right = 224.0
+margin_bottom = 24.0
+hint_tooltip = "Remove board..."
+disabled = true
+icon = SubResource( 2 )
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Toolbar"]
+margin_left = 228.0
+margin_right = 432.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="AddThingButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 436.0
+margin_right = 528.0
+margin_bottom = 24.0
+hint_tooltip = "Add a new thing to the board"
+disabled = true
+text = "Add thing"
+icon = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "A a new thing to the board"
+}
+
+[node name="RemoveThingButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 532.0
+margin_right = 560.0
+margin_bottom = 24.0
+hint_tooltip = "Remove selected thing"
+disabled = true
+icon = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "Remove select thing from the board"
+}
+
+[node name="Spacer2" type="Control" parent="Margin/VBox/Toolbar"]
+margin_left = 564.0
+margin_right = 769.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="SettingsButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 773.0
+margin_right = 801.0
+margin_bottom = 24.0
+hint_tooltip = "Settings"
+icon = SubResource( 2 )
+__meta__ = {
+"_editor_description_": "A a new thing to the board"
+}
+
+[node name="ExportButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 805.0
+margin_right = 833.0
+margin_bottom = 24.0
+icon = SubResource( 2 )
+
+[node name="VSeparator3" type="VSeparator" parent="Margin/VBox/Toolbar"]
+margin_left = 837.0
+margin_right = 841.0
+margin_bottom = 24.0
+
+[node name="HelpButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+margin_left = 845.0
+margin_right = 975.0
+margin_bottom = 24.0
+hint_tooltip = "View online documentation"
+text = "Documentation"
+icon = SubResource( 2 )
+
+[node name="VersionLabel" type="Label" parent="Margin/VBox/Toolbar"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 979.0
+margin_right = 1018.0
+margin_bottom = 24.0
+size_flags_vertical = 1
+text = "v1.0.1"
+valign = 1
+
+[node name="UpdateButton" type="ToolButton" parent="Margin/VBox/Toolbar"]
+visible = false
+margin_left = 1863.0
+margin_right = 1914.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "v0.0.1"
+__meta__ = {
+"_editor_description_": "Open GitHub repository"
+}
+
+[node name="Board" parent="Margin/VBox" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 28.0
+margin_right = 1018.0
+margin_bottom = 597.0
+_settings = NodePath("../../../Settings")
+
+[node name="EditBoardDialog" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="ConfirmRemoveBoardDialog" type="ConfirmationDialog" parent="."]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Remove board?"
+
+[node name="SettingsDialog" parent="." instance=ExtResource( 6 )]
+_settings = NodePath("../Settings")
+
+[node name="ExportDialog" parent="." instance=ExtResource( 8 )]
+
+[connection signal="visibility_changed" from="." to="." method="_on_MainView_visibility_changed"]
+[connection signal="has_update" from="UpdateChecker" to="." method="_on_UpdateChecker_has_update"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/AddBoardButton" to="." method="_on_AddBoardButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/EditBoardButton" to="." method="_on_EditBoardButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/RemoveBoardButton" to="." method="_on_RemoveBoardButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/AddThingButton" to="." method="_on_AddThingButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/RemoveThingButton" to="." method="_on_RemoveThingButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/ExportButton" to="." method="_on_ExportButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/Toolbar/UpdateButton" to="." method="_on_UpdateButton_pressed"]
+[connection signal="updated" from="EditBoardDialog" to="." method="_on_EditBoardDialog_updated"]
+[connection signal="confirmed" from="ConfirmRemoveBoardDialog" to="." method="_on_ConfirmRemoveBoardDialog_confirmed"]
